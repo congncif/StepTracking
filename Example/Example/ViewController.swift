@@ -15,8 +15,17 @@ extension TrackingType {
     static let facebook = "facebook"
 }
 
+struct TrackerFactory: AnalyticsTrackingManufacturing {
+    private let defaultFactory = DefaultTrackerFactory()
+
+    func getAnalyticsTracker() -> AnalyticsTracking {
+        defaultFactory.getAnalyticsTracker()
+            .combined(FirebaseAnalyticsTracker())
+    }
+}
+
 class ViewController: UIViewController {
-    lazy var tracker: AnalyticsTracking = AnalyticsTrackerFactory().getAnalyticsTracker()
+    lazy var tracker: AnalyticsTracking = TrackerFactory().getAnalyticsTracker()
 
     private let disposeBag = DisposeBag()
 

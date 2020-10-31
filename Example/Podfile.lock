@@ -68,12 +68,12 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
-  - StepTracking (0.1.0):
-    - StepTracking/Default (= 0.1.0)
-  - StepTracking/Core (0.1.0)
-  - StepTracking/Default (0.1.0):
+  - StepTracking (0.2.0):
+    - StepTracking/Default (= 0.2.0)
+  - StepTracking/Core (0.2.0)
+  - StepTracking/Default (0.2.0):
     - StepTracking/Core
-  - StepTracking/RxTracking (0.1.0):
+  - StepTracking/RxTracking (0.2.0):
     - RxSwift
     - StepTracking/Core
 
@@ -117,7 +117,7 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  StepTracking: ffa25f400a3631a16191c1520cbd876e7b33dac7
+  StepTracking: 578ed8b2c6ad2713f32905df25e7dc3963378f15
 
 PODFILE CHECKSUM: ae9266cd1ba69df7e415d916cd10b853bdf4a076
 

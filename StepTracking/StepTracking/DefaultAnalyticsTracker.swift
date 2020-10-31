@@ -1,5 +1,5 @@
 //
-//  Tracking.swift
+//  DefaultAnalyticsTracker.swift
 //  StepTracking
 //
 //  Created by NGUYEN CHI CONG on 10/30/20.
@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import StepTracking
 
 final class DefaultAnalyticsTracker: AnalyticsTracking {
     func sendEvent(_ event: AnalyticsEvent) {
