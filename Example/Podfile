@@ -6,8 +6,6 @@ use_frameworks!
 
 target 'Example' do
   pod 'StepTracking', :path => '../'
-  pod 'StepTracking/RxTracking', :path => '../'
   
-  pod 'RxCocoa'
   pod 'Firebase/Analytics'
 end

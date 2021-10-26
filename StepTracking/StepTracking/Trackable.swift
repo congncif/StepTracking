@@ -41,8 +41,8 @@ public protocol TrackingStepsTraceable: AnyObject {
     func onStep(_ step: Trackable)
 }
 
-extension TrackingStepsTraceable {
-    public var synthesizedParameters: [TrackingEncodable] {
+public extension TrackingStepsTraceable {
+    var synthesizedParameters: [TrackingEncodable] {
         var parameters: [TrackingEncodable] = []
         for step in steps {
             switch step.parametersScenario {
@@ -56,10 +56,12 @@ extension TrackingStepsTraceable {
     }
 }
 
-public final class StepsTracker: TrackingStepsTraceable {
-    public private(set) var steps: [Trackable] = []
+final class StepsTracker: TrackingStepsTraceable {
+    private(set) var steps: [Trackable] = []
 
-    public func onStep(_ step: Trackable) {
+    init() {}
+
+    func onStep(_ step: Trackable) {
         let preSteps = steps.prefix { $0.trackId != step.trackId }
         steps = preSteps + [step]
     }

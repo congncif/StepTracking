@@ -6,8 +6,6 @@
 //  Copyright © 2020 [iF] Solution. All rights reserved.
 //
 
-import RxCocoa
-import RxSwift
 import StepTracking
 import UIKit
 
@@ -15,19 +13,9 @@ extension TrackingType {
     static let facebook = "facebook"
 }
 
-struct TrackerFactory: AnalyticsTrackingManufacturing {
-    private let defaultFactory = DefaultTrackerFactory()
-
-    func getAnalyticsTracker() -> AnalyticsTracking {
-        defaultFactory.getAnalyticsTracker()
-            .combined(FirebaseAnalyticsTracker())
-    }
-}
-
 class ViewController: UIViewController {
-    lazy var tracker: AnalyticsTracking = TrackerFactory().getAnalyticsTracker()
-
-    private let disposeBag = DisposeBag()
+    lazy var tracker: AnalyticsStepTracking = AnalyticsCenter.shared
+        .appended(tracker: FirebaseAnalyticsTracker())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +24,7 @@ class ViewController: UIViewController {
         let events = event.bundled(with: event.converted(by: {
             TrackingEvent(type: TrackingType.facebook, name: $0.name + ".converted")
         }))
-        Observable.just(events)
-            .bind(to: tracker.rx.trackingEvents)
-            .disposed(by: disposeBag)
+        
+        tracker.sendEvents(events)
     }
 }

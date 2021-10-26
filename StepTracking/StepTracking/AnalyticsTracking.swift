@@ -13,16 +13,12 @@ public protocol AnalyticsTracking: AnyObject {
     func sendEvent(_ event: AnalyticsEvent)
 }
 
-extension AnalyticsTracking {
-    public func isTrackingEnabled(event: AnalyticsEvent) -> Bool { true }
+public extension AnalyticsTracking {
+    func isTrackingEnabled(event: AnalyticsEvent) -> Bool { true }
 
-    public func sendEvents(_ events: [AnalyticsEvent]) {
-        events.forEach { [unowned self] in
-            self.sendEvent($0)
+    func sendEvents(_ events: [AnalyticsEvent]) {
+        events.forEach { [weak self] in
+            self?.sendEvent($0)
         }
     }
-}
-
-public protocol AnalyticsTrackingManufacturing {
-    func getAnalyticsTracker() -> AnalyticsTracking
 }

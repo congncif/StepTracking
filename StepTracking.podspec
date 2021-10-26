@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'StepTracking'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.swift_versions    = ['5.0', '5.1', '5.2', '5.3']
   s.summary          = '[StepTracking] Track code behavior follow step by step.'
 
@@ -40,13 +40,5 @@ Pod::Spec.new do |s|
   
   s.subspec 'Core' do |co|
       co.source_files = 'StepTracking/StepTracking/**/*'
-  end
-  
-  s.subspec 'RxTracking' do |co|
-      co.source_files = 'StepTracking/RxTracking/**/*'
-      
-      co.dependency 'StepTracking/Core'
-      
-      co.dependency 'RxSwift'
   end
 end
