@@ -24,6 +24,12 @@ final class CombineAnalyticsTracker: AnalyticsTracking {
             $0.sendEvent(event)
         }
     }
+
+    func setUserID(_ userID: String?) {
+        self.trackers.forEach {
+            $0.setUserID(userID)
+        }
+    }
 }
 
 extension AnalyticsTracking {

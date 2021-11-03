@@ -10,6 +10,9 @@ import Foundation
 
 public protocol AnalyticsTracking: AnyObject {
     func isTrackingEnabled(event: AnalyticsEvent) -> Bool
+    
+    func setUserID(_ userID: String?)
+    
     func sendEvent(_ event: AnalyticsEvent)
 }
 

@@ -18,4 +18,8 @@ final class FirebaseAnalyticsTracker: AnalyticsTracking {
     func sendEvent(_ event: AnalyticsEvent) {
         Analytics.logEvent(event.name, parameters: event.parameters)
     }
+
+    func setUserID(_ userID: String?) {
+        Analytics.setUserID(userID)
+    }
 }

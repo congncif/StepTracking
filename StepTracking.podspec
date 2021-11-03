@@ -8,15 +8,9 @@
 
 Pod::Spec.new do |s|
   s.name             = 'StepTracking'
-  s.version          = '0.3.0'
-  s.swift_versions    = ['5.0', '5.1', '5.2', '5.3']
+  s.version          = '0.4.0'
+  s.swift_versions    = ["5.4", "5.5"]
   s.summary          = '[StepTracking] Track code behavior follow step by step.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
   Core Tracking to implement tracking layer which independent with Analytics agencies.
@@ -24,7 +18,6 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = 'https://github.com/congncif/StepTracking'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'NGUYEN CHI CONG' => 'congnc.if@gmail.com' }
   s.source           = { :git => 'https://github.com/congncif/StepTracking.git', :tag => s.version.to_s }
@@ -39,6 +32,6 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Core' do |co|
-      co.source_files = 'StepTracking/StepTracking/**/*'
+      co.source_files = 'StepTracking/StepTracking/**/*.swift'
   end
 end

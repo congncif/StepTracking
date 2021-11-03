@@ -8,10 +8,23 @@
 
 import Foundation
 
-final class DefaultAnalyticsTracker: AnalyticsTracking {
+final class DebugConsoleTracker: AnalyticsTracking {
+    private(set) var userID: String?
+
+    func setUserID(_ userID: String?) {
+        self.userID = userID
+        #if DEBUG
+        print("⚓️ \(String(describing: Self.self)) set `userID` to \(String(describing: userID))")
+        #endif
+    }
+
     func sendEvent(_ event: AnalyticsEvent) {
         #if DEBUG
-        print("👉 \(String(describing: Self.self)) sent event with name `\(event.name)` and parameters \(event.parameters)")
+        if let userID = userID {
+            print("👀 \(String(describing: Self.self)) with userID \(userID) sent an event with name `\(event.name)` and parameters \(event.parameters)")
+        } else {
+            print("👀 \(String(describing: Self.self)) sent an event with name `\(event.name)` and parameters \(event.parameters)")
+        }
         #endif
     }
 }

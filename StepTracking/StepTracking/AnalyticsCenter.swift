@@ -20,7 +20,7 @@ public final class AnalyticsCenter {
     }
 
     public convenience init() {
-        self.init(stepsTracker: StepsTracker(), initialTracker: DefaultAnalyticsTracker())
+        self.init(stepsTracker: StepsTracker(), initialTracker: DebugConsoleTracker())
     }
 
     /// Provide an unique tracker for centralized management and can be appended
@@ -53,5 +53,9 @@ extension AnalyticsCenter: AnalyticsStepTracking {
 
             self.internalTracker.sendEvent(wrappedEvent)
         }
+    }
+
+    public func setUserID(_ userID: String?) {
+        internalTracker.setUserID(userID)
     }
 }
